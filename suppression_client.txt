@@ -1,0 +1,41 @@
+Private Sub CommandButton1_Click()
+Unload Me
+End Sub
+
+Private Sub CommandButton2_Click()
+
+    Dim sh As Worksheet
+    Dim numclt As Range
+    Dim cell As Range
+
+    
+    Set sh = ThisWorkbook.Sheets("Clients")
+    Set numclt = sh.Range("E5:E60")
+    
+
+    
+    For Each cell In numclt
+        If CStr(cell.Value) = CStr(ComboBox1.Value) Then
+        
+        
+        
+        
+      cell.EntireRow.Delete
+        
+        
+        
+        
+         
+        End If
+    Next cell
+    
+
+
+
+
+
+Unload Me
+
+
+
+End Sub

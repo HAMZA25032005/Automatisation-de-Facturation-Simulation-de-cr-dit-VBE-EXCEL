@@ -1,0 +1,160 @@
+Private Sub CommandButton1_Click()
+Unload Me
+End Sub
+
+Private Sub CommandButton2_Click()
+
+Dim sh As Worksheet
+Dim lastrowqte As Long
+Dim lastrowref As Variant
+Dim lastrowdesig As Variant
+Dim lastrowprix As Variant
+Dim lastrowmont As Variant
+Dim valeur1 As Variant
+Dim valeur2 As Variant
+Dim valeur3 As Variant
+Dim valeur4 As Variant
+Dim valeur5 As Variant
+Dim plage As Range
+Dim somme As Double
+Dim totale As Range
+Dim remise As Range
+Dim livraison As Range
+Dim frais_transp As Range
+Dim netcommerc As Range
+Dim tva As Range
+Dim ttc As Range
+
+
+
+
+
+
+
+
+
+
+Set sh = ThisWorkbook.Sheets("La Facture")
+
+lastrowqte = sh.Cells(sh.Rows.Count, "F").End(xlUp).Row + 1
+
+lastrowref = sh.Cells(sh.Rows.Count, "D").End(xlUp).Row + 1
+
+lastrowdesig = sh.Cells(sh.Rows.Count, "E").End(xlUp).Row + 1
+
+lastrowprix = sh.Cells(sh.Rows.Count, "G").End(xlUp).Row + 1
+
+lastrowmont = sh.Cells(sh.Rows.Count, "H").End(xlUp).Row + 1
+
+
+
+Dim shsource As Worksheet
+Dim sourcerefp As Range
+Dim cell As Range
+
+    
+    Set shsource = ThisWorkbook.Sheets("Produits")
+    Set sourcerefp = shsource.Range("E5:E50")
+    
+
+    
+    For Each cell In sourcerefp
+        If CStr(cell.Value) = CStr(reference.Value) Then
+        
+        sh.Cells(lastrowref, "D").Value = reference.Value
+        sh.Cells(lastrowqte, "F").Value = qte.Value
+        sh.Cells(lastrowdesig, "E").Value = cell.Offset(0, 1).Value
+        sh.Cells(lastrowprix, "G").Value = cell.Offset(0, 2).Value
+        sh.Cells(lastrowmont, "H").Value = cell.Offset(0, 2).Value * qte.Value
+          
+    
+
+        End If
+        
+    Next cell
+    
+With sh.Range("D" & lastrowref & ":H" & lastrowmont)
+    
+    .Font.Bold = True
+    .Interior.Color = RGB(211, 211, 211)
+    .Borders.Weight = xlThick
+
+    End With
+
+
+
+Set plage = sh.Range("H18:H70")
+somme = Application.WorksheetFunction.Sum(plage)
+sh.Range("K17") = somme
+
+
+
+Set totale = sh.Range("K17")
+Set remise = sh.Range("K19")
+
+
+If totale.Value <= 500 Then
+
+    remise.Value = 0
+    
+ElseIf totale.Value >= 500 And totale.Value <= 700 Then
+    
+    remise.Value = 0.08
+    
+ElseIf totale.Value >= 700 And totale.Value <= 900 Then
+
+    remise.Value = 0.15
+    
+ElseIf totale.Value >= 900 Then
+
+    remise.Value = 0.2
+    
+    
+End If
+
+
+
+
+
+Set livraison = sh.Range("B10")
+Set frais_transp = sh.Range("K22")
+
+If livraison.Value = "OUI" Then
+
+    frais_transp.Value = totale.Value * 0.02
+    
+Else
+
+    frais_transp.Value = 0
+    
+    
+End If
+
+
+
+
+Set netcommerc = sh.Range("K20")
+
+netcommerc.Value = totale.Value - (totale.Value * remise.Value) + frais_transp.Value
+
+
+
+Set tva = sh.Range("K23")
+
+tva.Value = totale.Value * 0.196
+
+
+
+Set ttc = sh.Range("K24")
+
+ttc.Value = totale.Value + tva.Value
+
+
+
+Unload Me
+
+End Sub
+
+Private Sub reference_Change()
+
+End Sub

@@ -1,0 +1,116 @@
+Sub run_forum_ajout_client()
+
+ajout_client.Show
+
+End Sub
+
+Sub run_forum_ajout_produit()
+
+ajout_produit.Show
+
+End Sub
+
+Sub run_forum_remplir_facture()
+
+facture_info.Show
+
+End Sub
+
+Sub run_forum_remplir_facture_produit()
+
+facture_produit.Show
+
+End Sub
+
+Sub run_forum_remplir_simulation_donnees()
+
+simulation_donnees.Show
+
+End Sub
+
+Sub run_forum_supprimer_client()
+
+suppression_client.Show
+
+End Sub
+Sub run_forum_supprimer_produit()
+
+suppression_produit.Show
+
+End Sub
+
+Sub GoToclients()
+    Sheets("Clients").Select
+End Sub
+
+Sub GoToproduits()
+    Sheets("Produits").Select
+End Sub
+
+
+Sub GoTofacture()
+    Sheets("La Facture").Select
+End Sub
+
+Sub GoTosimulation()
+    Sheets("Simulation").Select
+End Sub
+
+Sub GoTohome()
+    Sheets("Home").Select
+End Sub
+
+Sub clearfacture()
+
+MsgBox "Êtes-vous sûr que vous souhaitez effacer les données?"
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("La Facture")
+
+Dim rng1 As Range
+Dim rng As Range
+Dim rng2 As Range
+Set rng = sh.Range("D18:H90")
+Set rng1 = sh.Range("B9:B14")
+Set rng2 = sh.Range("K17:K24")
+rng.clear
+rng1.ClearContents
+rng2.ClearContents
+
+
+
+
+End Sub
+
+
+Sub clearclient()
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Clients")
+
+Dim rng As Range
+Set rng = sh.Range("E5:G80")
+
+rng.clear
+
+
+
+
+
+End Sub
+
+Sub clearproduits()
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Produits")
+
+Dim rng As Range
+Set rng = sh.Range("E5:G80")
+
+rng.clear
+
+
+
+
+
+End Sub

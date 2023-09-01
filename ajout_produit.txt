@@ -1,0 +1,32 @@
+Private Sub CommandButton1_Click()
+Unload ajout_produit
+End Sub
+
+Private Sub CommandButton2_Click()
+    Dim sheetp As Worksheet
+    Dim lastrowref As Long
+    Dim lastrowdesig As Variant
+    Dim lastrowprix As Variant
+    
+    Set sheetp = ThisWorkbook.Worksheets("Produits")
+    
+    lastrowref = sheetp.Cells(sheetp.Rows.Count, "E").End(xlUp).Row + 1
+    lastrowdesig = sheetp.Cells(sheetp.Rows.Count, "F").End(xlUp).Row + 1
+    lastrowprix = sheetp.Cells(sheetp.Rows.Count, "G").End(xlUp).Row + 1
+    
+    sheetp.Cells(lastrowref, "E").Value = TextBox1.Value
+    sheetp.Cells(lastrowdesig, "F").Value = TextBox2.Value
+    sheetp.Cells(lastrowprix, "G").Value = TextBox3.Value
+    
+    With sheetp.Range("E" & lastrowref & ":G" & lastrowprix)
+    
+    .Font.Bold = True
+    .Interior.Color = RGB(211, 211, 211)
+    .Borders.Weight = xlThick
+
+    End With
+    
+    Unload Me
+
+
+End Sub

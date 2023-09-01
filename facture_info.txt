@@ -1,0 +1,73 @@
+Private Sub CommandButton1_Click()
+Unload facture_info
+End Sub
+
+
+
+Private Sub CommandButton2_Click()
+Dim sh As Worksheet
+Dim valeur1 As Integer
+Dim valeur2 As Variant
+Dim valeur3 As Variant
+Dim valeur4 As Variant
+Dim valeur5 As Variant
+
+
+Set sh = ThisWorkbook.Sheets("La Facture")
+
+valeur1 = numfacture.Value
+sh.Range("B9").Value = valeur1
+
+valeur2 = livraison.Value
+sh.Range("B10").Value = valeur2
+
+valeur3 = numclt.Value
+sh.Range("B12").Value = valeur3
+
+
+
+
+
+    Dim shsource As Worksheet
+    Dim sourcenumclt As Range
+    Dim cell As Range
+
+    
+    Set shsource = ThisWorkbook.Sheets("Clients")
+    Set sourcenumclt = shsource.Range("E5:E50")
+    
+
+    
+    For Each cell In sourcenumclt
+        If CStr(cell.Value) = CStr(numclt.Value) Then
+        
+        valeur4 = cell.Offset(0, 1).Value
+        valeur5 = cell.Offset(0, 2).Value
+        
+         
+        End If
+    Next cell
+    
+
+sh.Range("B13").Value = valeur4
+
+
+sh.Range("B14").Value = valeur5
+
+
+
+
+
+
+
+
+
+Unload Me
+End Sub
+Private Sub UserForm_Initialize()
+
+livraison.AddItem "OUI"
+livraison.AddItem "NON"
+
+
+End Sub

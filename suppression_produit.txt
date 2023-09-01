@@ -1,0 +1,36 @@
+Private Sub CommandButton1_Click()
+Unload Me
+
+End Sub
+
+Private Sub CommandButton2_Click()
+
+Dim sh As Worksheet
+    Dim refprod As Range
+    Dim cell As Range
+
+    
+    Set sh = ThisWorkbook.Sheets("Produits")
+    Set refprod = sh.Range("E5:E60")
+    
+
+    
+    For Each cell In refprod
+        If CStr(cell.Value) = CStr(ComboBox1.Value) Then
+        
+        cell.EntireRow.Delete
+         
+        End If
+    Next cell
+    
+
+
+
+
+
+Unload Me
+
+
+
+
+End Sub

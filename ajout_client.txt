@@ -1,0 +1,34 @@
+Private Sub ajouterclient_Click()
+
+    Dim sheet As Worksheet
+    Dim lastrownum As Long
+    Dim lastrowraison As Variant
+    Dim lastrowadresse As Variant
+    
+    Set sheet = ThisWorkbook.Worksheets("Clients")
+    
+    lastrownum = sheet.Cells(sheet.Rows.Count, "E").End(xlUp).Row + 1
+    lastrowraison = sheet.Cells(sheet.Rows.Count, "F").End(xlUp).Row + 1
+    lastrowadresse = sheet.Cells(sheet.Rows.Count, "G").End(xlUp).Row + 1
+    
+    sheet.Cells(lastrownum, "E").Value = TextBox1.Value
+    sheet.Cells(lastrowraison, "F").Value = TextBox2.Value
+    sheet.Cells(lastrowadresse, "G").Value = TextBox3.Value
+    
+    With sheet.Range("E" & lastrownum & ":G" & lastrowadresse)
+    
+    .Font.Bold = True
+    .Interior.Color = RGB(211, 211, 211)
+    .Borders.Weight = xlThick
+
+    End With
+    
+    Unload Me
+End Sub
+
+
+Private Sub annulerclient_Click()
+
+Unload ajout_client
+
+End Sub

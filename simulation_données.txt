@@ -1,0 +1,36 @@
+Private Sub CommandButton1_Click()
+Unload Me
+End Sub
+
+Private Sub CommandButton2_Click()
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Simulation")
+
+Dim tauxann As Range
+Dim duree As Range
+Set tauxann = sh.Range("B8")
+Set duree = sh.Range("B9")
+tauxann.Value = TextBox1.Value
+duree.Value = TextBox2.Value
+
+
+
+
+Dim shsource As Worksheet
+Set shsource = ThisWorkbook.Sheets("La Facture")
+Dim montant As Range
+Set montant = sh.Range("B7")
+montant.Value = shsource.Range("K17").Value
+
+sh.Range("B10").Value = Date
+
+
+
+
+
+
+
+
+Unload Me
+End Sub
