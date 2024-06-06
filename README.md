@@ -3,7 +3,7 @@
 
 ## Description du Projet
 
-Ce projet a pour but de développer une application en VBA Excel pour automatiser la facturation et fournir un simulateur de crédit pour une entreprise de vente d’équipements informatiques. L'application réduit les erreurs de calcul et améliore l'efficacité du processus de facturation.
+Ce projet a pour but de développer une application en VBA Excel pour automatiser la facturation et fournir un simulateur de crédit pour une entreprise. L'application réduit les erreurs de calcul et améliore l'efficacité du processus de facturation.
 
 ## Table des Matières
 
