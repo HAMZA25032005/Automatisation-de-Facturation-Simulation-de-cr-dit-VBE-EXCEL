@@ -97,6 +97,16 @@ Les contributions sont les bienvenues ! Veuillez suivre les étapes suivantes po
 4. Poussez votre branche (`git push origin feature/ma-nouvelle-fonctionnalité`)
 5. Ouvrez une Pull Request
 
+## Menu de Navigation
+![image](https://github.com/HAMZA25032005/Automatisation-de-Facturation-Simulation-de-cr-dit-VBE-EXCEL/assets/143803507/66fedd6f-9997-4184-bc1a-ba828fbc8106)
+![image](https://github.com/HAMZA25032005/Automatisation-de-Facturation-Simulation-de-cr-dit-VBE-EXCEL/assets/143803507/144180d0-a316-4249-a3dc-be2b42c6c135)
+![image](https://github.com/HAMZA25032005/Automatisation-de-Facturation-Simulation-de-cr-dit-VBE-EXCEL/assets/143803507/5bb28685-8409-4647-aaad-b1513614a1d8)
+![image](https://github.com/HAMZA25032005/Automatisation-de-Facturation-Simulation-de-cr-dit-VBE-EXCEL/assets/143803507/175be83a-12bf-429a-ae65-9b7b53d9be0e)
+![image](https://github.com/HAMZA25032005/Automatisation-de-Facturation-Simulation-de-cr-dit-VBE-EXCEL/assets/143803507/c80eef81-1cda-4725-aa32-80b378797f9e)
+
+
+
+
 ## Licence
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
